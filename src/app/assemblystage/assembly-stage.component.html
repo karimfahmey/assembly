@@ -1,0 +1,11 @@
+<div data-testid="assembly-stage" class="stage">
+  <h3>{{ name }}</h3>
+  <button
+    *ngFor="let item of items"
+    data-testid="assembly-item"
+    (click)="moveForward.emit(item)"
+    (contextmenu)="moveBackward.emit([$event, item])"
+  >
+    {{ item.content }}
+  </button>
+</div>

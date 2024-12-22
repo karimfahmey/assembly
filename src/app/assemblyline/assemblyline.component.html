@@ -1,0 +1,15 @@
+<input
+  data-testid="assembly-add-item"
+  [(ngModel)]="newItem"
+  (keydown.enter)="addItem()"
+/>
+
+<div class="stages">
+  <app-assembly-stage
+    *ngFor="let stage of stages; let i = index"
+    [name]="stage"
+    [items]="itemsByStage[i]"
+    (moveForward)="moveForward(i, $event)"
+    (moveBackward)="moveBackward($event[0], i, $event[1])"
+  ></app-assembly-stage>
+</div>
